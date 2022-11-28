@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.10.7 on win32)" generated="20221126 20:46:03.588" rpa="false" schemaversion="3">
+<suite id="s1" name="Firsttestsuite" source="c:\Users\djema\TP_AutomationTests_Robotframework\scripts\firsttestsuite.robot">
+<kw name="Open page" library="Keywords" type="SETUP">
+<arg>${vURL}</arg>
+<arg>${vBrowser}</arg>
+<doc>Ce Keyword sert a acceder a la page web a tester</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${vURL}</arg>
+<arg>${vBrowser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221126 20:46:03.874" level="INFO">Opening browser 'chrome' to base url 'https://practicetestautomation.com/practice-test-login/'.</msg>
+<status status="PASS" starttime="20221126 20:46:03.873" endtime="20221126 20:46:19.300"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221126 20:46:19.301" endtime="20221126 20:46:19.435"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:03.873" endtime="20221126 20:46:19.436"/>
+</kw>
+<test id="s1-t1" name="Test case 1: Positive LogIn test" line="20">
+<kw name="Login" library="Keywords">
+<arg>${vUsername}</arg>
+<arg>${vPassword}</arg>
+<doc>Ce Keyword sert a se connecter</doc>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${txt_UserName}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20221126 20:46:19.437" endtime="20221126 20:46:19.474"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${txt_UserName}</arg>
+<arg>${vUsername}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221126 20:46:19.475" level="INFO">Typing text 'student' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20221126 20:46:19.474" endtime="20221126 20:46:19.559"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${txt_Password}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20221126 20:46:19.560" endtime="20221126 20:46:19.591"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${txt_Password}</arg>
+<arg>${vPassword}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20221126 20:46:19.592" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg timestamp="20221126 20:46:19.629" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20221126 20:46:19.677" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20221126 20:46:19.592" endtime="20221126 20:46:19.677"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20221126 20:46:19.678" endtime="20221126 20:46:19.679"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${btn_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221126 20:46:19.680" level="INFO">Clicking button 'id=submit'.</msg>
+<status status="PASS" starttime="20221126 20:46:19.680" endtime="20221126 20:46:20.736"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:19.437" endtime="20221126 20:46:20.737"/>
+</kw>
+<kw name="Verify page URL &amp; Contains" library="Keywords">
+<arg>${Attempted_URL}</arg>
+<doc>Ce Keyword sert a verifier qu'on est sur la bonne page</doc>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${URL_Loged_In}</var>
+<doc>Returns the current browser window URL.</doc>
+<msg timestamp="20221126 20:46:20.744" level="INFO">${URL_Loged_In} = https://practicetestautomation.com/logged-in-successfully/</msg>
+<status status="PASS" starttime="20221126 20:46:20.738" endtime="20221126 20:46:20.745"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>URL de la page actuel:</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221126 20:46:20.745" level="INFO">URL de la page actuel:</msg>
+<status status="PASS" starttime="20221126 20:46:20.745" endtime="20221126 20:46:20.746"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${URL_Loged_In}</arg>
+<arg>${Attempted_URL}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221126 20:46:20.746" endtime="20221126 20:46:20.746"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Logged In Successfully</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20221126 20:46:20.764" level="INFO">Current page contains text 'Logged In Successfully'.</msg>
+<status status="PASS" starttime="20221126 20:46:20.747" endtime="20221126 20:46:20.764"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:20.738" endtime="20221126 20:46:20.765"/>
+</kw>
+<kw name="Verify Element" library="Keywords">
+<arg>${expected_Element_Text}</arg>
+<doc>Ce Keyword sert a verifier l'existence d'un élément</doc>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${btn_Deconnexion_Locator}</arg>
+<arg>${expected_Text}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20221126 20:46:20.797" level="INFO">Element 'link:Log out' contains text 'Log out'.</msg>
+<status status="PASS" starttime="20221126 20:46:20.767" endtime="20221126 20:46:20.797"/>
+</kw>
+<kw name="Element Should Be Enabled" library="SeleniumLibrary">
+<arg>${btn_Deconnexion_Locator}</arg>
+<doc>Verifies that element identified by ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20221126 20:46:20.797" endtime="20221126 20:46:20.825"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:20.766" endtime="20221126 20:46:20.826"/>
+</kw>
+<kw name="LogOut" library="Keywords">
+<doc>Ce Keyword sert a se déconnecter a la page web</doc>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${Btn_Deconnexion_Locator}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20221126 20:46:20.827" level="INFO">Clicking link 'link:Log out'.</msg>
+<status status="PASS" starttime="20221126 20:46:20.827" endtime="20221126 20:46:21.297"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:20.826" endtime="20221126 20:46:21.297"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:19.436" endtime="20221126 20:46:21.298"/>
+</test>
+<test id="s1-t2" name="Test case 2: Negative username test" line="26">
+<kw name="Login" library="Keywords">
+<arg>incorrectUser</arg>
+<arg>${vPassword}</arg>
+<doc>Ce Keyword sert a se connecter</doc>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${txt_UserName}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20221126 20:46:21.301" endtime="20221126 20:46:21.331"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${txt_UserName}</arg>
+<arg>${vUsername}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221126 20:46:21.331" level="INFO">Typing text 'incorrectUser' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20221126 20:46:21.331" endtime="20221126 20:46:21.420"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${txt_Password}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20221126 20:46:21.420" endtime="20221126 20:46:21.446"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${txt_Password}</arg>
+<arg>${vPassword}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20221126 20:46:21.447" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg timestamp="20221126 20:46:21.489" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20221126 20:46:21.538" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20221126 20:46:21.447" endtime="20221126 20:46:21.538"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20221126 20:46:21.539" endtime="20221126 20:46:21.540"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${btn_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221126 20:46:21.541" level="INFO">Clicking button 'id=submit'.</msg>
+<status status="PASS" starttime="20221126 20:46:21.540" endtime="20221126 20:46:21.592"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:21.301" endtime="20221126 20:46:21.592"/>
+</kw>
+<kw name="Verify error message" library="Keywords">
+<arg>${Error_Msge_Locator}</arg>
+<arg>Your username is invalid!</arg>
+<doc>Ce Keyword sert a verifier l'existence et le contenue d'un message d'erreure</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${error_Message_Locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221126 20:46:21.593" endtime="20221126 20:46:21.864"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${error_Message_Locator}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221126 20:46:21.881" level="INFO">Element 'id=error' is displayed.</msg>
+<status status="PASS" starttime="20221126 20:46:21.864" endtime="20221126 20:46:21.882"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${error_Message_Locator}</arg>
+<arg>${Expected_Error_Message}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20221126 20:46:21.904" level="INFO">Element 'id=error' contains text 'Your username is invalid!'.</msg>
+<status status="PASS" starttime="20221126 20:46:21.882" endtime="20221126 20:46:21.904"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:21.593" endtime="20221126 20:46:21.905"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:21.300" endtime="20221126 20:46:21.905"/>
+</test>
+<test id="s1-t3" name="Test case 3: Negative password test" line="31">
+<kw name="Login" library="Keywords">
+<arg>${vUsername}</arg>
+<arg>incorrectPassword</arg>
+<doc>Ce Keyword sert a se connecter</doc>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${txt_UserName}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20221126 20:46:21.908" endtime="20221126 20:46:21.929"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${txt_UserName}</arg>
+<arg>${vUsername}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221126 20:46:21.930" level="INFO">Typing text 'student' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20221126 20:46:21.930" endtime="20221126 20:46:21.998"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${txt_Password}</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20221126 20:46:21.998" endtime="20221126 20:46:22.022"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${txt_Password}</arg>
+<arg>${vPassword}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20221126 20:46:22.023" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg timestamp="20221126 20:46:22.046" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20221126 20:46:22.090" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20221126 20:46:22.022" endtime="20221126 20:46:22.090"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>${TIMEOUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20221126 20:46:22.091" endtime="20221126 20:46:22.092"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${btn_Login}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20221126 20:46:22.093" level="INFO">Clicking button 'id=submit'.</msg>
+<status status="PASS" starttime="20221126 20:46:22.092" endtime="20221126 20:46:22.136"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:21.907" endtime="20221126 20:46:22.136"/>
+</kw>
+<kw name="Verify error message" library="Keywords">
+<arg>${Error_Msge_Locator}</arg>
+<arg>Your password is invalid!</arg>
+<doc>Ce Keyword sert a verifier l'existence et le contenue d'un message d'erreure</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${error_Message_Locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221126 20:46:22.138" endtime="20221126 20:46:22.154"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${error_Message_Locator}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20221126 20:46:22.170" level="INFO">Element 'id=error' is displayed.</msg>
+<status status="PASS" starttime="20221126 20:46:22.154" endtime="20221126 20:46:22.171"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${error_Message_Locator}</arg>
+<arg>${Expected_Error_Message}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20221126 20:46:22.186" level="INFO">Element 'id=error' contains text 'Your password is invalid!'.</msg>
+<status status="PASS" starttime="20221126 20:46:22.171" endtime="20221126 20:46:22.186"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:22.137" endtime="20221126 20:46:22.186"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:21.907" endtime="20221126 20:46:22.187"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221126 20:46:22.189" endtime="20221126 20:46:24.821"/>
+</kw>
+<status status="PASS" starttime="20221126 20:46:03.593" endtime="20221126 20:46:24.821"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Firsttestsuite">Firsttestsuite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
